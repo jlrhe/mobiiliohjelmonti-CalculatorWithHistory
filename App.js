@@ -22,6 +22,7 @@ export default function App() {
     setNumber1('');
     setNumber2('');
     setResult('');
+    setHistory([]);
   }
   return (
     <View style={styles.container}>
@@ -58,7 +59,9 @@ export default function App() {
           data={history}
           renderItem={({item}) => {
             return <Text style={styles.historyItem}>{item}</Text>;
-          }}
+            }
+          }
+          keyExtractor={(item, index) => index.toString()} //voi käyttää indexiä avaimena, koska listan järjestys ei koskaan muutu
         />
       </View>
       <StatusBar style="auto" />
